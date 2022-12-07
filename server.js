@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
-const PORT = 4000;
+
+//This tells the server to use there own port if they want
+const PORT = process.env.PORT || 4000;
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/user");
 
