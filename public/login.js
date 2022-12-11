@@ -32,11 +32,17 @@ const submitUserLoginForm = async (event) => {
             },
         })
 
-        if(response){
+        const finalIncomingResponse = await response.json();
+
+        console.log(finalIncomingResponse);
+
+        if(finalIncomingResponse.accessToken){
             window.location.href = "/home.html";
+        }else{
+            alert(finalIncomingResponse.message)
         }
 
-        // const finalIncomingResponse = await response.json();
+        
 
         // // We have to fix this 
         // if (finalIncomingResponse.accessToken) {
@@ -52,6 +58,6 @@ const submitUserLoginForm = async (event) => {
     } catch(error) {
         console.log(error);
     }
-    console.log(response);
+
 
 }
